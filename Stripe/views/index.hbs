@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Payment Store</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Buy my dog</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <img src="img-responsive" src="https://newevolutiondesigns.com/images/freebies/dog-wallpaper-8.jpg">
+            </div>
+            <div class="col-md-4">
+                <h3>My cute dog</h3>
+                <p>Please buy this dog so I can show people that stripe works with node</p>
+                <h3>Dog details</h3>
+                <ul>
+                    <li>This dog is cute</li>
+                    <li>He can do tricks</li>
+                    <li>He's toilet trained</li>
+                    <li>He is only two years old</li>
+                    <li>His name is Doug</li>
+                </ul>
+                <form action="/charge" method="post">
+                    <script
+                        src="https://checkout.stripe.com/checkout.js"
+                        class ="stripe-button"
+                        data-key ="pk_test_o93TMtLuXtOfLzfrICMCPc9V"
+                        data-amount = "30000"
+                        data-name = "cute dog"
+                        data-description = "this is my cute dog you have just bought"
+                        data-locale = "auto"
+                        data-currency = "gbp"
+                        >
+                        <input type="hidden" name="chargeAmount" value="30000">
+                    </script>
+                </form>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>
