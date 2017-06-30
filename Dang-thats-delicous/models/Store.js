@@ -47,9 +47,16 @@ storeSchema.pre('save', async function(next) {
     if(storesWithSlug.length) {
         this.slug = `${this.slug}-${storesWithSlug.length + 1}`;
     }
-
     next();
     // TODO make more resilient so slugs are unique
 });
+
+storeSchema.statics.getTagsList = function() {
+    return this.aggregate([
+        { $unwind: '$tags' },
+        { $group: { _id: '$tags', count: { $sum: 1 } } },
+        { $sort: { count: -1 } }
+    ]);
+}
 
 module.exports = mongoose.model('Store', storeSchema);
